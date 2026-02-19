@@ -68,6 +68,13 @@ export default function Builder() {
     fetchPlayers();
   }, []);
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    })
+  );
   
   useEffect(() => {
     const zonesValides = FORMATIONS[currentFormation].map(pos => pos.id);
@@ -102,7 +109,7 @@ export default function Builder() {
 
   return (
     <div className="builder-container">
-      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCenter}>
+      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCenter} sensors={sensors}>
         <select value={currentFormation} onChange={(e) => setCurrentFormation(e.target.value)}>
           {Object.keys(FORMATIONS).map((f) => (
             <option key={f} value={f}>{f}</option>

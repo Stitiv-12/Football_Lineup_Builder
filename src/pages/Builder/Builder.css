@@ -65,3 +65,46 @@
   border: 2px solid gold;
   cursor: grab;
 }
+
+.player-img, .player-thumb {
+  touch-action: none;
+  cursor: grab;
+}
+
+@media (max-width: 850px) {
+  .builder-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .main-layout {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .pitch {
+    height: 500px;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .reserve-zone {
+    min-height: 150px;
+    justify-content: center;
+  }
+
+  .player-img, .player-thumb {
+    width: 45px;
+    height: 45px;
+  }
+
+  .slot-container {
+    width: 60px;
+    height: 60px;
+  }
+}
